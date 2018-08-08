@@ -10,12 +10,16 @@
 - [和 redux 一起工作](tutorial/07.fetching-data-with-redux.md)
 - [部署](tutorial/08.depoying-a-dacejs-app.md)
 
+## 概念
+- [路由](concepts/routing.md)
+
 ## FAQ
 - [如何自定义 eslint 规则](faq/01.custom-eslint-rules.md)
 - [如何自定义 stylelint 规则](#)
 - [如何自定义 babelrc 配置](#)
 - [如何自定义 postcss 配置](#)
 - [如何自定义 webpack 配置](#)
+- [如何更新网页标题](#)
 - [如何自定义路由规则](#)
 - [如何按页面打包代码](#)
 - [如何编写 dace 插件](#)
@@ -23,4 +27,6 @@
 - [如何让 getInitialState 只在浏览器端执行](#)
 
 ## API
--
+- [Link](#)
+- [Head](#)
+- [getInitialState()](#)
