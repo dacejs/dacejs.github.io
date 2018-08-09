@@ -21,3 +21,12 @@
 | src/pages/a/index.jsx     | /a     | 自动路由 |
 | src/pages/a/b.jsx         | /a/b   | 自动路由 |
 | src/pages/a/b/index.jsx   | /a/b   | 自动路由 |
+
+## 自定义路由
+有的页面不希望使用默认基于文件的路由，或者基于文件的路由满足不了要求的，可以使用 `router.js` 来自定义路由。该文件在 dace 运行时会解析成 `react-router` 的 [<Route\>](https://reacttraining.com/react-router/web/api/Route)
+
+```js
+module.exports = {
+  path: '/post/:id'
+};
+```
