@@ -24,7 +24,7 @@ import axios from 'axios';
 
 const Page = ({ stars }) => (
   <div>
-    Next stars: {stars}
+    stars: {stars}
   </div>
 );
 
