@@ -26,9 +26,8 @@
 - [如何按页面打包代码](#)
 - [如何编写 dace 插件](#)
 - [如何预加载数据](#)
-- [如何让 getInitialState 只在浏览器端执行](#)
 
 ## API
-- [Link](#api/link.md)
-- [Head](#api/head.md)
-- [getInitialProps()](#api/get-initial-props.md)
+- [Link](api/link.md)
+- [Head](api/head.md)
+- [getInitialProps()](api/get-initial-props.md)
