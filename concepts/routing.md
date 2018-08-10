@@ -30,3 +30,6 @@ module.exports = {
   path: '/post/:id'
 };
 ```
+
+## 示例
+[with-custom-router](https://github.com/dacejs/dace/tree/master/examples/with-custom-router)
