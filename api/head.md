@@ -9,7 +9,7 @@ export default () => (
   <div>
     <Head>
       <title>My page title</title>
-      <script src="//q.qzz.com/test.js" />
+      <script src="//code.jquery.com/jquery-1.11.3.js" />
     </Head>
     <p>Hello world!</p>
   </div>
