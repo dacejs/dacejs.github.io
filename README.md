@@ -21,7 +21,7 @@
 - [如何自定义 postcss 配置](faq/custom-postcss.md)
 - [如何自定义 webpack 配置](faq/custom-webpack.md)
 - [如何更新网页标题](api/head.md)
-- [如何自定义服务器端渲染模版](faq/document.md)
+- [如何自定义服务器端渲染模版](faq/custom-document.md)
 - [如何自定义路由规则](faq/custom-router.md)
 - 如何按页面打包代码
 - 如何编写 dace 插件
