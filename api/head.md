@@ -7,7 +7,10 @@ import { Head } from 'dace';
 
 export default () => (
   <div>
-    <Head>My page title</Head>
+    <Head>
+      <title>My page title</title>
+      <script src="//q.qzz.com/test.js" />
+    </Head>
     <p>Hello world!</p>
   </div>
 );
