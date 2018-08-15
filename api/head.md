@@ -1,6 +1,6 @@
 # Head
 
-dace 暴露了一个用于将元素追加到 `<head>` 中的组件。
+`Head` 是 dace 对外暴露、用于将元素追加到 `<head>` 中的组件，它是个 [react-helmet](https://www.npmjs.com/package/react-helmet)组件，详细 API 参考官网文档。
 
 ```js
 import { Head } from 'dace';
@@ -8,10 +8,17 @@ import { Head } from 'dace';
 export default () => (
   <div>
     <Head>
-      <title>My page title</title>
+      <title>Home</title>
+      <style type="text/css">
+        {`
+          .red {
+            color: #f00;
+          }
+        `}
+      </style>
       <script src="//code.jquery.com/jquery-1.11.3.js" />
     </Head>
-    <p>Hello world!</p>
+    <p className="red">Hello world!</p>
   </div>
 );
 ```
