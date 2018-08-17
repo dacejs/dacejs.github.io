@@ -13,9 +13,9 @@ getInitialProps 接收的上下文对象包含以下属性：
 
 - match：react-router 对 URL 配置的结果对象，详情请查阅 [react-router 官方文档](https://reacttraining.com/react-router/web/api/match)。
 - query：URL的 query string 部分，并且其已经被解析成了一个对象，可以获取到 URL 问号后的数据。解析规则请查阅 [qs 官方文档](https://www.npmjs.com/package/qs)
-- store：使用 dace-plugin-redux 后，参数中会包含 store，这个参数是通过 redux 的 createStore 创建的 store 实例，详情请查阅 [redux 官方文档](https://redux.js.org/api/store)。
 - req：http request 对象，仅服务器端渲染时可用。
 - res：http response 对象，仅服务器端渲染时可用。
+- store：使用 dace-plugin-redux 后，参数中会包含 store，这个参数是通过 redux 的 createStore 创建的 store 实例，详情请查阅 [redux 官方文档](https://redux.js.org/api/store)。
 
 注意：使用 `req` 和 `res` 参数时一定要做环境判断，保证只在服务器端渲染时执行相关代码。
 
