@@ -33,3 +33,4 @@
 - [Head](api/head.md)
 - [getInitialProps()](api/get-initial-props.md)
 - [document.js](api/document.md)
+- [@getInitialProps()](api/get-initial-props-decorator.md)

@@ -1,4 +1,4 @@
-# getInitialProps
+# getInitialProps 方法
 
 当加载页面获取数据的时候，Dace 通过页面组件的 getInitialProps 静态方法来获取数据。此静态方法能够获取所有的数据，并将其解析成一个 JavaScript 对象，然后将其作为属性附加到 props 对象上。
 
