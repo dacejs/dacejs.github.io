@@ -13,6 +13,7 @@
 ## 概念
 - [路由](concepts/routing.md)
 - [环境变量](concepts/profile.md)
+- 插件
 
 ## FAQ
 - [如何自定义 eslint 规则](faq/custom-eslint.md)
@@ -33,4 +34,6 @@
 - [Head](api/head.md)
 - [getInitialProps()](api/get-initial-props.md)
 - [document.js](api/document.md)
-- [@getInitialProps()](api/get-initial-props-decorator.md)
+
+## Plugins
+- [dace-plugin-redux](plugin/redux.md)
