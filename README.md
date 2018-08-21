@@ -13,7 +13,8 @@
 ## 概念
 - [路由](concepts/routing.md)
 - [环境变量](concepts/profile.md)
-- 插件
+- [配置文件](concepts/config-file.md)
+- [插件](concepts/plugin.md)
 
 ## FAQ
 - [如何自定义 eslint 规则](faq/custom-eslint.md)
@@ -25,7 +26,6 @@
 - [如何自定义服务器端渲染模版](faq/custom-document.md)
 - [如何自定义路由规则](faq/custom-router.md)
 - 如何按页面打包代码
-- 如何编写 dace 插件
 - 如何预加载数据
 - [如何将静态文件发布到 CDN](faq/cdn.md)
 
