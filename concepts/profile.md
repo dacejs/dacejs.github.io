@@ -4,6 +4,10 @@ dace 使用 [dotenv](https://www.npmjs.com/package/dotenv) 进行配置管理。
 
 在工程根目录下（注意不是 `src` 目录）新建 `profiles` 目录，在 `profiles` 目录下分别为不同环境建立 profile 文件。
 
+## 命名约定
+- `profiles` 中所有的环境变量都可以在 node 环境下取到值。
+- 以 `DACE_` 开头的环境变量在 webpack 编译输出产物执行时依然能取到值。
+
 ## 加载规则
 dace 启动时可以加载多个配置文件，当配置项存在冲突时，以先加载的配置为准。
 
