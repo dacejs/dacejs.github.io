@@ -2,7 +2,11 @@
 
 Mock 数据文件存放在工程根目录下的 `mock` 目录，该目录主要存放网站本地开发时网页ajax异步请求接口返回的数据。
 
-Mock 服务只在 dev 环境下运行，服务运行在 `http://localhost:3002` 上，可以通过传递环境变量 `DACE_MOCK_PORT` 来修改端口号，可以通过传递环境变量 `DACE_MOCK_RULES_CONFIG` 来修改转发规则配置文件的位置。
+Mock 服务只在 dev 环境下运行，服务运行在 `http://localhost:3002` 上。
+
+- 可以通过传递环境变量 `DACE_API_BASE_URL` 来指定服务器端渲染时获取 API 数据的地址。这个地址在不同环境下会配置不同的值，建议[使用 profile 文件](profile.md)进行配置。
+- 可以通过传递环境变量 `DACE_MOCK_PORT` 来修改端口号。
+- 可以通过传递环境变量 `DACE_MOCK_RULES_CONFIG` 来修改转发规则配置文件的位置。
 
 数据文件有两类：
 
