@@ -37,4 +37,4 @@
 - [document.js](api/document.md)
 
 ## Plugins
-- [dace-plugin-redux](plugin/redux.md)
+- [dace-plugin-redux](plugins/redux.md)
