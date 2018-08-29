@@ -25,5 +25,18 @@ module.exports = {
 };
 ```
 
+## 使用参数
+可以给插件传递参数，只需声明插件时传入一个数组即可（类似 babelrc 和 eslintrc）。
+
+```js
+plugins: [
+  ['redux', {
+    middlewares: [
+      // ...
+    ]
+  }]
+]
+```
+
 ## 写一个自己的插件
 [参考 dace-plugin-redux](https://github.com/dacejs/dace-plugin-redux/blob/master/src/plugin.js)

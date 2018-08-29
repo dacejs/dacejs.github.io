@@ -4,6 +4,52 @@
 
 插件不带数据缓存功能，开发者根据实际业务需求自己来设定缓存策略。
 
+## 安装
+```
+npm i dace-plugin-redux
+```
+
+## 用法
+
+在 `dace.config.js` 的插件中添加配置：
+
+```js
+module.exports = {
+  plugins: ['redux']
+};
+```
+
+## 参数
+
+**特别注意**
+
+`middlewares` 参数中的 js 代码目前只支持 `ES5` 语法。
+
+### 使用封装好的 redux 中间件
+
+```js
+plugins: [
+  ['redux', {
+    middlewares: [ `require('redux-logger').default` ]
+  }]
+]
+```
+
+### 直接在配置中书写 redux 中间件
+
+```js
+plugins: [
+  ['redux', {
+    middlewares: [
+      `function() {
+        const createLogger = require('redux-logger').createLogger;
+        return createLogger();
+      }()`
+    ]
+  }]
+]
+```
+
 ## API
 
 ### getInitialProps 方法
