@@ -10,6 +10,7 @@ document 能接收 dace 返回的上下文对象，对象中包含以下参数�
 - jsTags：webpack 编译输出的 css 标签字符串。
 - markup：服务器端渲染生成的 DOM 字符串。
 - state：服务器端渲染生成的 state 经 JSON.stringify() 后的字符串。
+- loadableState：loadable-component 输出的 state 字符串。
 
 ## 返回值
 返回首屏 HTML 字符串。
@@ -20,7 +21,7 @@ document 能接收 dace 返回的上下文对象，对象中包含以下参数�
 
 ```js
 export default ({
-  head, cssTags, jsTags, markup, state
+  head, cssTags, jsTags, markup, state, loadableState
 }) => `<!doctype html>
 <html ${head.htmlAttributes.toString()}>
 <head>
@@ -44,6 +45,7 @@ export default ({
   <script>
   window.INITIAL_STATE=${state};
   </script>
+  ${loadableState}
   ${jsTags}
 </body>
 </html>`;
