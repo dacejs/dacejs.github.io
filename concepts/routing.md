@@ -25,6 +25,14 @@
 ## 自定义路由
 有的页面不希望使用默认基于文件的路由，或者基于文件的路由满足不了要求的，可以使用 `router.js` 来自定义路由。该文件在 dace 运行时会解析成 `react-router` 的 [<Route\>](https://reacttraining.com/react-router/web/api/Route)
 
+`path` 的取值可以是以下类型：
+
+- 字符串
+- 字符串数组
+- 正则表达式
+
+更多信息参考：[path-to-regexp@^1.7.0](https://github.com/pillarjs/path-to-regexp)
+
 ```js
 module.exports = {
   path: '/post/:id'
