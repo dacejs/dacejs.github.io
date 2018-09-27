@@ -11,6 +11,7 @@
 - [部署](tutorial/08.depoying-a-dacejs-app.md)
 
 ## 概念
+- [命令行](concepts/cli.md)
 - [路由](concepts/routing.md)
 - [环境变量](concepts/profile.md)
 - [mock 数据](concepts/mock.md)
@@ -19,14 +20,14 @@
 
 ## FAQ
 - [如何自定义 eslint 规则](faq/custom-eslint.md)
-- 如何自定义 stylelint 规则
+- [如何自定义 stylelint 规则](faq/custom-stylelint.md)
 - [如何自定义 babelrc 配置](faq/custom-babelrc.md)
 - [如何自定义 postcss 配置](faq/custom-postcss.md)
 - [如何自定义 webpack 配置](faq/custom-webpack.md)
 - [如何更新网页标题](api/head.md)
 - [如何自定义服务器端渲染模版](faq/custom-document.md)
 - [如何自定义路由规则](faq/custom-router.md)
-- 如何按页面打包代码
+- [如何按页面打包代码](faq/code-splitting.md)
 - 如何预加载数据
 - [如何将静态文件发布到 CDN](faq/cdn.md)
 
