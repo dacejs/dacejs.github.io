@@ -14,7 +14,7 @@
 - [命令行](concepts/cli.md)
 - [路由](concepts/routing.md)
 - [环境变量](concepts/profile.md)
-- [mock 数据](concepts/mock.md)
+- [请求代理](concepts/proxy.md)
 - [配置文件](concepts/config-file.md)
 - [插件](concepts/plugin.md)
 

@@ -42,9 +42,6 @@ npm start -- -vV
 - `-v`, `--verbose`: 显示详细日志信息
 - `-V`, `--visualizer`: 启用 webpack-visualizer 打包分析工具
 
-## dace mock
-启动数据模拟服务，`dace start` 时会启动该服务。
-
 ### 参数
 无
 
@@ -62,12 +59,6 @@ npm start -- -vV
 
   // 本地开发 web server 端口
   DACE_PORT: 3000,
-
-  // 本地开发 mock server 端口
-  DACE_MOCK_PORT: 3002,
-
-  // mock 地址转发规则文件地址
-  DACE_MOCK_RULES_CONFIG: paths.appMockRulesConfig,
 
   // API 接口地址 BaseURL，建议配置在 profiles 中
   DACE_API_BASE_URL: 'http://localhost:3002',
