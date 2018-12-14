@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>&lt;Head&gt; · Dace</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;&lt;code&gt;Head&lt;/code&gt; 是 dace 对外暴露、用于将元素追加到 &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 中的组件，它是个 &lt;a href=&quot;https://www.npmjs.com/package/react-helmet&quot;&gt;react-helmet&lt;/a&gt;组件，详细 API 参考官网文档。&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="&lt;Head&gt; · Dace"/><meta property="og:type" content="website"/><meta property="og:url" content="https://dacejs.github.io/index.html"/><meta property="og:description" content="&lt;p&gt;&lt;code&gt;Head&lt;/code&gt; 是 dace 对外暴露、用于将元素追加到 &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 中的组件，它是个 &lt;a href=&quot;https://www.npmjs.com/package/react-helmet&quot;&gt;react-helmet&lt;/a&gt;组件，详细 API 参考官网文档。&lt;/p&gt;
+"/><meta property="og:image" content="https://dacejs.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://dacejs.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon-dark.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://dacejs.github.io/blog/atom.xml" title="Dace Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://dacejs.github.io/blog/feed.xml" title="Dace Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/dace.svg" alt="Dace"/><h2 class="headerTitleWithLogo">Dace</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/tutorial/getting-started" target="_self">文档</a></li><li class="siteNavGroupActive"><a href="/docs/api/link" target="_self">API</a></li><li class=""><a href="/help" target="_self">帮助</a></li><li class=""><a href="/blog/" target="_self">博客</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul><li class="navListItem"><a class="navItem" href="/docs/api/link">&lt;Link&gt;</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/api/head">&lt;Head&gt;</a></li><li class="navListItem"><a class="navItem" href="/docs/api/get-initial-props">getInitialProps 方法</a></li><li class="navListItem"><a class="navItem" href="/docs/api/document">document.js</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">&lt;Head&gt;</h1></header><article><div><span><p><code>Head</code> 是 dace 对外暴露、用于将元素追加到 <code>&lt;head&gt;</code> 中的组件，它是个 <a href="https://www.npmjs.com/package/react-helmet">react-helmet</a>组件，详细 API 参考官网文档。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Head } <span class="hljs-keyword">from</span> <span class="hljs-string">'dace'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Head</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="undefined">
+        {`
+          .red {
+            color: #f00;
+          }
+        `}
+      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//code.jquery.com/jquery-1.11.3.js"</span> /&gt;</span><span class="handlebars"><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"red"</span>&gt;</span>Hello world!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+);
+</span></span></span></code></pre>
+<p>当组件卸载的时候，组件内定义的 <code>&lt;Head&gt;</code> 将会被清空，所以请确保每个页面都在其各自的 <code>&lt;Head&gt;</code> 内声明了其所有需要的内容，而不是假定这些东西已经在其他页面中添加过了。</p>
+<ul>
+<li>如果在组件内自定义了 <code>&lt;Head&gt;</code>，则自定义 <code>&lt;Head&gt;</code> 内的元素(例如 <code>&lt;title&gt;</code>、<code>&lt;meta&gt;</code>等)将会被追加到框架自带的 <code>&lt;head&gt;</code> 标签中</li>
+<li>每个组件自定义的 <code>&lt;Head&gt;</code> 内容只会应用在各自的页面上，子组件内定义的 <code>&lt;Head&gt;</code> 也会追加到当前页面的 <code>&lt;head&gt;</code> 内，如果有重复定义的标签或属性，则子组件覆盖父组件，位于文档更后面的组件覆盖更前面的组件。</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/link"><span class="arrow-prev">← </span><span>&lt;Link&gt;</span></a><a class="docs-next button" href="/docs/api/get-initial-props"><span class="function-name-prevnext">getInitialProps 方法</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/dace.svg" alt="Dace" width="66" height="58"/></a><div><h5>文档</h5><a href="/docs/en/tutorial/getting-started">教程</a><a href="/docs/en/faq/custom-eslint">常见问题</a><a href="/docs/en/api/link">API</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/dace" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://github.com/dacejs/dace/issues/new/choose">Add issue</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/dacejs/dace">GitHub</a><a class="github-button" href="https://github.com/dacejs/dace" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://github.com/dacejs" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dace.svg" alt="Dace" width="170"/></a><section class="copyright">Copyright © 2018 dace</section></footer></div></body></html>

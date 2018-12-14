@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>创建简洁明了的网页地址 · Dace</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;在前面的课程中，我们学到了如何使用查询串创建动态页面。以此为基础，我们一篇博客的链接会像这样： &lt;a href=&quot;http://localhost:3000/post?title=Hello%20Dace&quot;&gt;http://localhost:3000/post?title=Hello%20Dace&lt;/a&gt;&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="创建简洁明了的网页地址 · Dace"/><meta property="og:type" content="website"/><meta property="og:url" content="https://dacejs.github.io/index.html"/><meta property="og:description" content="&lt;p&gt;在前面的课程中，我们学到了如何使用查询串创建动态页面。以此为基础，我们一篇博客的链接会像这样： &lt;a href=&quot;http://localhost:3000/post?title=Hello%20Dace&quot;&gt;http://localhost:3000/post?title=Hello%20Dace&lt;/a&gt;&lt;/p&gt;
+"/><meta property="og:image" content="https://dacejs.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://dacejs.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon-dark.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://dacejs.github.io/blog/atom.xml" title="Dace Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://dacejs.github.io/blog/feed.xml" title="Dace Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/dace.svg" alt="Dace"/><h2 class="headerTitleWithLogo">Dace</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/tutorial/getting-started" target="_self">文档</a></li><li class=""><a href="/docs/api/link" target="_self">API</a></li><li class=""><a href="/help" target="_self">帮助</a></li><li class=""><a href="/blog/" target="_self">博客</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>教程</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">教程</h3><ul><li class="navListItem"><a class="navItem" href="/docs/tutorial/getting-started">入门</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/navigate-between-pages">页面之间的导航</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/using-shared-components">使用公共组件</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/create-dynamic-pages">创建动态页面</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/tutorial/create-clean-urls-pages">创建简洁明了的网页地址</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/fetching-data-for-pages">获取页面数据</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/dance-with-redux">与 Redux 共舞</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/publish-website">部署网站</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">概念</h3><ul><li class="navListItem"><a class="navItem" href="/docs/concepts/commands">命令行工具</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/routing">路由规则</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/profile">环境变量</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/proxy">请求代理</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/configuration">配置文件</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/plugins">插件</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">常见问题</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq/custom-eslint">自定义 eslint 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-stylelint">自定义 stylelint 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-babelrc">自定义 babel 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-postcss">自定义 postcss 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-webpack">自定义 webpack 配置</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-document">自定义服务器端渲染模版</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-router">自定义网页路由</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/code-splitting">拆分打包</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/cdn">将静态文件发布到 CDN</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">插件</h3><ul><li class="navListItem"><a class="navItem" href="/docs/plugins/dace-plugin-redux">Dace-plugin-redux</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">创建简洁明了的网页地址</h1></header><article><div><span><p>在前面的课程中，我们学到了如何使用查询串创建动态页面。以此为基础，我们一篇博客的链接会像这样： <a href="http://localhost:3000/post?title=Hello%20Dace">http://localhost:3000/post?title=Hello%20Dace</a></p>
+<p>但是这个URL看起来不怎么好看，如果我们想要下面这样的链接，我们应该怎么办呢？</p>
+<p><a href="http://localhost:3000/p/hello-dace">http://localhost:3000/p/hello-dace</a></p>
+<p>看起来是不是好很多了，是吧?</p>
+<h2><a class="anchor" aria-hidden="true" id="设置"></a><a href="#设置" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>设置</h2>
+<p>为了按照本课程学习，需要有一个示例 Dace 应用程序，为此，你可以下载下面的这个应用程序作为学习案例:</p>
+<pre><code class="hljs css language-shell">git clone https://github.com/dacejs/learn-dace-demo.git
+cd learn-dace-demo
+git checkout 04.create-dynamic-pages
+</code></pre>
+<p>可以用下面的命令来运行:</p>
+<pre><code class="hljs css language-shell">npm install
+npm start
+</code></pre>
+<p>现在，访问 <a href="http://localhost:3000/">http://localhost:3000/</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="路由匹配"></a><a href="#路由匹配" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>路由匹配</h2>
+<p>Dace 内部路由是通过 react-router 实现的。现在，我们将使用路由匹配的功能。基本上，它在浏览器地址栏上显示一个不同于实际 URL 的地址.</p>
+<p>现在，我们来给我们的博客地址添加一个路由匹配。</p>
+<p><code>src/pages/index.jsx</code> 的内容修改为如下:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+<span class="hljs-keyword">import</span> { Link } <span class="hljs-keyword">from</span> <span class="hljs-string">'dace'</span>;
+<span class="hljs-keyword">import</span> Layout <span class="hljs-keyword">from</span> <span class="hljs-string">'../layouts/default'</span>;
+
+<span class="hljs-keyword">const</span> PostLink = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">{</span>`/<span class="hljs-attr">post</span>/${<span class="hljs-attr">props.id</span>}`}&gt;</span>{props.title}<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>
+);
+
+PostLink.propTypes = {
+  <span class="hljs-attr">id</span>: PropTypes.string.isRequired,
+  <span class="hljs-attr">title</span>: PropTypes.string.isRequired
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; (
+  &lt;Layout&gt;
+    &lt;h1&gt;My Blog&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;PostLink id="hello-dace" title="Hello Dace" /&gt;
+      &lt;PostLink id="learn-dace" title="Learn Dace is awesome" /&gt;
+      &lt;PostLink id="deploy-dace" title="Deploy apps with Jenkins" /&gt;
+    &lt;/ul&gt;
+  &lt;/Layout&gt;
+);
+</code></pre>
+<p>上面的代码为每一个 PostLink 增加了一个 id ，并且修改了链接地址为 <code>/post/${props.id}</code> 。</p>
+<p>新增目录 <code>src/pages/post/</code>，并在该目录下新增路由文件 <code>router.js</code></p>
+<p><code>src/pages/post/router.js</code>，内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/post/:id'</span>
+};
+</code></pre>
+<p>接着，我们还需要修改 <code>src/pages/post/index.jsx</code> 的内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+<span class="hljs-keyword">import</span> Layout <span class="hljs-keyword">from</span> <span class="hljs-string">'../../layouts/default'</span>;
+
+<span class="hljs-keyword">const</span> getPostById = <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> ({
+  <span class="hljs-string">'hello-dace'</span>: <span class="hljs-string">'Hello Dace'</span>,
+  <span class="hljs-string">'learn-dace'</span>: <span class="hljs-string">'Learn Dace is awesome'</span>,
+  <span class="hljs-string">'deploy-dace'</span>: <span class="hljs-string">'Deploy apps with Jenkins'</span>
+}[id]);
+
+<span class="hljs-keyword">const</span> Post = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> { params } = props.match;
+  <span class="hljs-keyword">const</span> title = getPostById(params.id);
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Layout</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{title}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is the blog post content.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Layout</span>&gt;</span></span>
+  );
+};
+
+Post.propTypes = {
+  <span class="hljs-attr">match</span>: PropTypes.object.isRequired
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Post;
+</code></pre>
+<p>路由规则 <code>/post/:id</code> 匹配到的 id 信息会保存在 <code>props.match.params</code> 中。上面代码中的 <code>getPostById()</code> 只是我们为了展示 demo 方便而模拟的函数，实际开发中，它应该是一个通过 id 去 API 接口获取整条记录的请求。</p>
+<p>现在，转到主页: <a href="http://localhost:3000/">http://localhost:3000/</a>，然后点击第一个博客标题，你会被导航到博客内容页面.</p>
+<p>好了，现在我们完成了整洁 URL 的支持。就像这样，你可以创建更多你想要的路由。</p>
+<p>本例中的数据是写死在代码中的，在下一节课程中，我们将学习如何从服务器端获取动态数据。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tutorial/create-dynamic-pages"><span class="arrow-prev">← </span><span>创建动态页面</span></a><a class="docs-next button" href="/docs/tutorial/fetching-data-for-pages"><span>获取页面数据</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#设置">设置</a></li><li><a href="#路由匹配">路由匹配</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/dace.svg" alt="Dace" width="66" height="58"/></a><div><h5>文档</h5><a href="/docs/en/tutorial/getting-started">教程</a><a href="/docs/en/faq/custom-eslint">常见问题</a><a href="/docs/en/api/link">API</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/dace" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://github.com/dacejs/dace/issues/new/choose">Add issue</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/dacejs/dace">GitHub</a><a class="github-button" href="https://github.com/dacejs/dace" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://github.com/dacejs" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dace.svg" alt="Dace" width="170"/></a><section class="copyright">Copyright © 2018 dace</section></footer></div></body></html>

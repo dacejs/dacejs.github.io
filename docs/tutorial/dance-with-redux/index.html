@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>与 Redux 共舞 · Dace</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;得益于 Dace 路由API的优点，我们知道了如何创建一个具有简洁 URL 的 Dace 应用程序。&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="与 Redux 共舞 · Dace"/><meta property="og:type" content="website"/><meta property="og:url" content="https://dacejs.github.io/index.html"/><meta property="og:description" content="&lt;p&gt;得益于 Dace 路由API的优点，我们知道了如何创建一个具有简洁 URL 的 Dace 应用程序。&lt;/p&gt;
+"/><meta property="og:image" content="https://dacejs.github.io/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://dacejs.github.io/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon-dark.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://dacejs.github.io/blog/atom.xml" title="Dace Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://dacejs.github.io/blog/feed.xml" title="Dace Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/dace.svg" alt="Dace"/><h2 class="headerTitleWithLogo">Dace</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/tutorial/getting-started" target="_self">文档</a></li><li class=""><a href="/docs/api/link" target="_self">API</a></li><li class=""><a href="/help" target="_self">帮助</a></li><li class=""><a href="/blog/" target="_self">博客</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>教程</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">教程</h3><ul><li class="navListItem"><a class="navItem" href="/docs/tutorial/getting-started">入门</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/navigate-between-pages">页面之间的导航</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/using-shared-components">使用公共组件</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/create-dynamic-pages">创建动态页面</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/create-clean-urls-pages">创建简洁明了的网页地址</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/fetching-data-for-pages">获取页面数据</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/tutorial/dance-with-redux">与 Redux 共舞</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/publish-website">部署网站</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">概念</h3><ul><li class="navListItem"><a class="navItem" href="/docs/concepts/commands">命令行工具</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/routing">路由规则</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/profile">环境变量</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/proxy">请求代理</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/configuration">配置文件</a></li><li class="navListItem"><a class="navItem" href="/docs/concepts/plugins">插件</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">常见问题</h3><ul><li class="navListItem"><a class="navItem" href="/docs/faq/custom-eslint">自定义 eslint 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-stylelint">自定义 stylelint 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-babelrc">自定义 babel 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-postcss">自定义 postcss 规则</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-webpack">自定义 webpack 配置</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-document">自定义服务器端渲染模版</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/custom-router">自定义网页路由</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/code-splitting">拆分打包</a></li><li class="navListItem"><a class="navItem" href="/docs/faq/cdn">将静态文件发布到 CDN</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">插件</h3><ul><li class="navListItem"><a class="navItem" href="/docs/plugins/dace-plugin-redux">Dace-plugin-redux</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">与 Redux 共舞</h1></header><article><div><span><p>得益于 Dace 路由API的优点，我们知道了如何创建一个具有简洁 URL 的 Dace 应用程序。</p>
+<p>实际上，我们通常需要从远程数据源获取数据。Dace 提供了一个标准 API 用于为页面获取数据。我们使用一个 <code>async</code> 静态方法 <code>getInitialProps</code> 来达到获取数据的目的。</p>
+<p>以此为基础，我们能够给以页面从远程数据源获取数据，然后把数据传给我们的一个页面组件的属性。我们可以编写 <code>getInitialProps</code> 函数让他能够同时在客户端和服务器端运行。</p>
+<p>在这节课中，我们要实现的功能是：在首页获取用户列表，点击用户名，可以查看用户的详细信息。</p>
+<p>现在开始!</p>
+<h2><a class="anchor" aria-hidden="true" id="设置"></a><a href="#设置" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>设置</h2>
+<p>下载需要的示例程序:</p>
+<pre><code class="hljs css language-shell">git clone https://github.com/dacejs/learn-dace-demo.git
+cd learn-dace-demo
+git checkout 06.fetching-data-for-pages
+</code></pre>
+<p>用下面的命令运行:</p>
+<pre><code class="hljs css language-shell">npm install
+npm start
+</code></pre>
+<p>然后，访问 <a href="http://localhost:3000">http://localhost:3000</a></p>
+<p>上一节课，我们学会了从服务器端获取数据并渲染页面，这对于很多简单的应用已经够用了。不过，当应用变得越来越复杂时，数据状态管理也会更复杂，业内已经有很多状态管理工具，其中 redux 是普及最广泛的一种。今天我们就来学习 dace + redux 开发复杂应用。</p>
+<h2><a class="anchor" aria-hidden="true" id="安装-dace-plugin-redux"></a><a href="#安装-dace-plugin-redux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安装 dace-plugin-redux</h2>
+<p>首先，我们安装 <code>dace-plugin-redux</code> 插件，它会包含 redux 相关的依赖以及修改后的 dace 核心代码。</p>
+<pre><code class="hljs">npm <span class="hljs-selector-tag">i</span> dace-plugin-redux
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="增加-dace-配置文件"></a><a href="#增加-dace-配置文件" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>增加 dace 配置文件</h2>
+<p>在工程根目录增加 dace 配置文件 <code>dace.config.js</code>，内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> { reduxConfig } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'dace-plugin-redux'</span>);
+
+<span class="hljs-built_in">module</span>.exports = reduxConfig;
+</code></pre>
+<p>这个文件的目的是修改 dace 默认 webpack 配置。</p>
+<p>OK，前期准备工作就绪，我们开始进入正题——获取文章列表。</p>
+<h2><a class="anchor" aria-hidden="true" id="获取文章列表"></a><a href="#获取文章列表" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取文章列表</h2>
+<p>在我们的演示程序中，显示了一个博客列表，现在我们用 <code>dace</code> + <code>redux</code> 改造演示程序。</p>
+<p>通常一个 redux 应用会包含：</p>
+<ul>
+<li>action.js</li>
+<li>reducer.js</li>
+</ul>
+<p>建议为每一个页面建一个目录，这样组织文件结构会很清晰。</p>
+<p>新建 <code>src/pages/index</code> 目录，并在该目录分别创建 <code>index.jsx</code>, <code>action.js</code>, <code>reducer.js</code>：</p>
+<p><code>src/pages/index/action.js</code> 内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> FETCH_POSTS = <span class="hljs-string">'fetch_posts'</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> fetchPosts = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">async</span> (dispatch, getState, api) =&gt; {
+  <span class="hljs-keyword">const</span> { posts } = getState();
+  <span class="hljs-keyword">if</span> (!posts) {
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> api.get(<span class="hljs-string">'http://jsonplaceholder.typicode.com/posts'</span>);
+    <span class="hljs-keyword">return</span> dispatch({
+      <span class="hljs-attr">type</span>: FETCH_POSTS,
+      <span class="hljs-attr">payload</span>: res
+    });
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+};
+</code></pre>
+<p><code>src/pages/index/reducer.js</code> 内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { FETCH_POSTS } <span class="hljs-keyword">from</span> <span class="hljs-string">'./action'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (state = {}, action) =&gt; {
+  <span class="hljs-keyword">switch</span> (action.type) {
+    <span class="hljs-keyword">case</span> FETCH_POSTS:
+      <span class="hljs-comment">// 只能返回对象，不能返回数组</span>
+      <span class="hljs-keyword">return</span> {
+        ...state,
+        <span class="hljs-attr">posts</span>: action.payload.data.map(<span class="hljs-function">(<span class="hljs-params">{ id, title }</span>) =&gt;</span> ({ id, title }))
+      };
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">return</span> state;
+  }
+};
+</code></pre>
+<p>注意到了吗，<code>action.js</code> 、<code>reducer.js</code> 这 2 个文件就是标准的 redux 用法，没有什么特殊代码。</p>
+<p>然后，<code>src/pages/index/index.jsx</code> 文件会很一些不同：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+<span class="hljs-keyword">import</span> { Link } <span class="hljs-keyword">from</span> <span class="hljs-string">'dace'</span>;
+<span class="hljs-keyword">import</span> { fetchPosts } <span class="hljs-keyword">from</span> <span class="hljs-string">'./action'</span>;
+<span class="hljs-keyword">import</span> reducer <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducer'</span>;
+<span class="hljs-keyword">import</span> Layout <span class="hljs-keyword">from</span> <span class="hljs-string">'../../layouts/default'</span>;
+
+@connect(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Index</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">static</span> propTypes = {
+    <span class="hljs-attr">posts</span>: PropTypes.arrayOf(PropTypes.shape({
+      <span class="hljs-attr">id</span>: PropTypes.number,
+      <span class="hljs-attr">title</span>: PropTypes.string
+    }))
+  };
+
+  <span class="hljs-keyword">static</span> defaultProps = {
+    <span class="hljs-attr">posts</span>: []
+  }
+
+  <span class="hljs-keyword">static</span> getInitialProps = <span class="hljs-function">(<span class="hljs-params">ctx</span>) =&gt;</span> {
+    ctx.store.injectReducer(reducer);
+    <span class="hljs-keyword">return</span> ctx.store.dispatch(fetchPosts());
+  }
+
+  componentDidMount() {
+    <span class="hljs-keyword">this</span>.props.store.injectReducer(reducer);
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Post List<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+          {
+            this.props.posts.map(post =&gt; (
+              <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{post.id}</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">{</span>`/<span class="hljs-attr">post</span>/${<span class="hljs-attr">post.id</span>}`}&gt;</span>{post.title}<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            ))
+          }
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Layout</span>&gt;</span></span>
+    );
+  }
+}
+</code></pre>
+<p>上面的代码一切看来都是很熟悉了，<code>getInitialProps</code> 包含的代码和之前有些不同：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">static</span> getInitialProps = <span class="hljs-function">(<span class="hljs-params">ctx</span>) =&gt;</span> {
+  ctx.store.injectReducer(reducer);
+  <span class="hljs-keyword">return</span> ctx.store.dispatch(fetchPosts());
+}
+</code></pre>
+<p><code>getInitialProps</code> 做了 2 件事：</p>
+<ul>
+<li>在全局 store 中注入了当前页面需要的 reducer。</li>
+<li>触发 action 方法获取数据。</li>
+</ul>
+<p>需要注意的是，当执行服务器端渲染时， <code>getInitialProps</code> 修改的是服务器端的 store ，即 reducer 注入到了服务器端的 store ，这就导致了问题——当在同一页面中浏览器端代码触发 action 时，找不到对应的 reducer 来更新 state ，解决的方法是，在浏览器执行的代码(componentDidMount())中再执行一次 injectReducer 方法。</p>
+<pre><code class="hljs css language-js">componentDidMount() {
+  <span class="hljs-keyword">this</span>.props.store.injectReducer(reducer);
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="实现文章展示页面"></a><a href="#实现文章展示页面" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实现文章展示页面</h2>
+<p>展示页面和列表页面基本上差不多，直接上代码。</p>
+<p><code>src/pages/post/action.js</code> 内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> FETCH_POST = <span class="hljs-string">'fetch_post'</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> fetchPost = <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> <span class="hljs-keyword">async</span> (dispatch, getState, api) =&gt; {
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> api.get(<span class="hljs-string">`http://jsonplaceholder.typicode.com/posts/<span class="hljs-subst">${id}</span>`</span>);
+  <span class="hljs-keyword">return</span> dispatch({
+    <span class="hljs-attr">type</span>: FETCH_POST,
+    <span class="hljs-attr">payload</span>: res
+  });
+};
+</code></pre>
+<p><code>src/pages/post/reducer.js</code> 内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { FETCH_POST } <span class="hljs-keyword">from</span> <span class="hljs-string">'./action'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (state = {}, action) =&gt; {
+  <span class="hljs-keyword">switch</span> (action.type) {
+    <span class="hljs-keyword">case</span> FETCH_POST:
+      <span class="hljs-comment">// 只能返回对象，不能返回数组</span>
+      <span class="hljs-keyword">return</span> {
+        ...state,
+        <span class="hljs-attr">post</span>: action.payload.data
+      };
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">return</span> state;
+  }
+};
+</code></pre>
+<p><code>src/pages/post/index.jsx</code> 内容如下：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+<span class="hljs-keyword">import</span> { fetchPost } <span class="hljs-keyword">from</span> <span class="hljs-string">'./action'</span>;
+<span class="hljs-keyword">import</span> reducer <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducer'</span>;
+<span class="hljs-keyword">import</span> Layout <span class="hljs-keyword">from</span> <span class="hljs-string">'../../layouts/default'</span>;
+
+@connect(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">static</span> propTypes = {
+    <span class="hljs-attr">post</span>: PropTypes.object
+  };
+
+  <span class="hljs-keyword">static</span> defaultProps = {
+    <span class="hljs-attr">post</span>: {}
+  }
+
+  <span class="hljs-keyword">static</span> getInitialProps = <span class="hljs-function">(<span class="hljs-params">ctx</span>) =&gt;</span> {
+    ctx.store.injectReducer(reducer);
+    <span class="hljs-keyword">return</span> ctx.store.dispatch(fetchPost(ctx.match.params.id));
+  }
+
+  componentDidMount() {
+    <span class="hljs-keyword">this</span>.props.store.injectReducer(reducer);
+  }
+
+  render() {
+    <span class="hljs-keyword">const</span> { post } = <span class="hljs-keyword">this</span>.props;
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{post.title}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{post.body}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Layout</span>&gt;</span></span>
+    );
+  }
+}
+</code></pre>
+<p>这里使用了 <code>getInitialProps</code> 的 <code>ctx</code> 参数，<a href="/docs/api/get-initial-props">查看 getInitialProps 文档</a></p>
+<h2><a class="anchor" aria-hidden="true" id="使用装饰器简化编程"></a><a href="#使用装饰器简化编程" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用装饰器简化编程</h2>
+<p>上面虽然实现了 redux 对数据的管理，但每个页面组件中需要写两次 injectReducer，另外 componentDidMount() 的代码完全一样，有没有办法让我们的代码变得更优雅呢？ dace-plugin-redux 提供了一个 <code>@getInitialProps()</code> 装饰器，用这个装饰器能让代码看起更简洁。</p>
+<p>我们用 <code>@getInitialProps()</code> 装饰器来修改 <code>src/pages/index/index.jsx</code>：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+<span class="hljs-keyword">import</span> { connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>;
+<span class="hljs-keyword">import</span> { Link } <span class="hljs-keyword">from</span> <span class="hljs-string">'dace'</span>;
+<span class="hljs-keyword">import</span> { getInitialProps } <span class="hljs-keyword">from</span> <span class="hljs-string">'dace-plugin-redux'</span>;
+<span class="hljs-keyword">import</span> { fetchPosts } <span class="hljs-keyword">from</span> <span class="hljs-string">'./action'</span>;
+<span class="hljs-keyword">import</span> reducer <span class="hljs-keyword">from</span> <span class="hljs-string">'./reducer'</span>;
+<span class="hljs-keyword">import</span> Layout <span class="hljs-keyword">from</span> <span class="hljs-string">'../../layouts/default'</span>;
+
+@getInitialProps({
+  reducer,
+  <span class="hljs-attr">promise</span>: <span class="hljs-function">(<span class="hljs-params">{ store }</span>) =&gt;</span> store.dispatch(fetchPosts())
+})
+@connect(<span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> state)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Index</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  <span class="hljs-keyword">static</span> propTypes = {
+    <span class="hljs-attr">posts</span>: PropTypes.arrayOf(PropTypes.shape({
+      <span class="hljs-attr">id</span>: PropTypes.number,
+      <span class="hljs-attr">title</span>: PropTypes.string
+    }))
+  };
+
+  <span class="hljs-keyword">static</span> defaultProps = {
+    <span class="hljs-attr">posts</span>: []
+  }
+
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Post List<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+          {
+            this.props.posts.map(post =&gt; (
+              <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{post.id}</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">{</span>`/<span class="hljs-attr">post</span>/${<span class="hljs-attr">post.id</span>}`}&gt;</span>{post.title}<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            ))
+          }
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Layout</span>&gt;</span></span>
+    );
+  }
+}
+</code></pre>
+<ul>
+<li>从 dace-plugin-redux 中导出 <code>getInitialProps</code></li>
+<li>对页面组件使用 <code>getInitialProps</code> 装饰器，装饰器接收 2 个参数：
+<ul>
+<li>reducer: 当前页面使用的 reducer。</li>
+<li>promise: 当前页面初始化执行的函数，即 <code>getInitialProps</code> 静态方法中的代码。</li>
+</ul></li>
+<li>将页面组件的 <code>getInitialProps</code> 静态方法 和 <code>componentDidMount</code> 方法的代码都删除。</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="最后"></a><a href="#最后" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最后</h2>
+<p>现在你学到了 Dace + Redux 开发。</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tutorial/fetching-data-for-pages"><span class="arrow-prev">← </span><span>获取页面数据</span></a><a class="docs-next button" href="/docs/tutorial/publish-website"><span>部署网站</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#设置">设置</a></li><li><a href="#安装-dace-plugin-redux">安装 dace-plugin-redux</a></li><li><a href="#增加-dace-配置文件">增加 dace 配置文件</a></li><li><a href="#获取文章列表">获取文章列表</a></li><li><a href="#实现文章展示页面">实现文章展示页面</a></li><li><a href="#使用装饰器简化编程">使用装饰器简化编程</a></li><li><a href="#最后">最后</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/dace.svg" alt="Dace" width="66" height="58"/></a><div><h5>文档</h5><a href="/docs/en/tutorial/getting-started">教程</a><a href="/docs/en/faq/custom-eslint">常见问题</a><a href="/docs/en/api/link">API</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/dace" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://github.com/dacejs/dace/issues/new/choose">Add issue</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/dacejs/dace">GitHub</a><a class="github-button" href="https://github.com/dacejs/dace" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://github.com/dacejs" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dace.svg" alt="Dace" width="170"/></a><section class="copyright">Copyright © 2018 dace</section></footer></div></body></html>
